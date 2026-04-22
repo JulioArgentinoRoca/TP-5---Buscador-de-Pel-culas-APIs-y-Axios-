@@ -11,6 +11,15 @@ export const simpleMovie = async (tittle) =>{
     }
 }
 
+export const filterSeacrh = async (tittle, filter) =>{
+    try{
+        const response = await axios.get(`https://www.omdbapi.com/?apikey=${apiKey}&s=${tittle}&type=${filter}`)
+        return response.data
+    }catch(error){
+        return error
+    }
+}
+
 export const movieDetail = async (id) => {
     try{
         const response = await axios.get(`https://www.omdbapi.com/?apikey=${apiKey}&i=${id}`)
