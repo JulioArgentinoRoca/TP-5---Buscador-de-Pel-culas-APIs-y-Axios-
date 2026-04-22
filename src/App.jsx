@@ -1,20 +1,27 @@
 import { useState } from 'react'
 import './App.css'
 import SearchBar from "./SearchBar.jsx"
+import { simpleMovie, movieDetail } from './api.jsx'
+import MovieCard from './MovieCard.jsx'
 
 function App() {
 
-  const [movies, setMovies] = useState[]
+  const [movies, setMovies] = useState([])
 
-  const handleSearch = (busqueda) => {
+  const handleSearch = async (busqueda) => {
     const res = await simpleMovie(busqueda)
-    const data = res.json()
-    setMovies(data)
+    setMovies(res.Search)
+    console.log(res.Search)
   }
 
   return (
     <>
-      <SearchBar handleSearch={handleSearch}/>
+      <SearchBar handleSearch={handleSearch} />
+      {
+        movies.forEach((pelicula) => {
+          <MovieCard pelicula={pelicula}/>
+        })
+      }
     </>
   )
 }

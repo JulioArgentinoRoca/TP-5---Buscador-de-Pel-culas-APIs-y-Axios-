@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import "./SearchBar.css"
 
 function SearchBar({ handleSearch }) {
@@ -11,7 +12,7 @@ function SearchBar({ handleSearch }) {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input type="text" name="searchBar" placeholder="Busca una pelicula..." id="peliculaInput" onChange={setBusqueda(e.target.value)}/>
+                <input type="text" name="searchBar" placeholder="Busca una pelicula..." id="peliculaInput" onChange={(e) => setBusqueda(e.target.value)}/>
                 <button type="submit"><img src="./img/lupa.png" alt="" /></button>
             </form>
         </div>
