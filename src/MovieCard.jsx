@@ -1,12 +1,16 @@
 import "./MovieCard.css"
 
-function MovieCard({pelicula}){
+function MovieCard({ pelicula, mostrarPelicula }) {
 
-    return(
+    const handleClick = () => {
+        mostrarPelicula(pelicula.imdbID)
+    }
 
-        <section>
 
-            <img src={pelicula.Poster} alt="Poster"/>
+    return (
+        <section onClick={handleClick}>
+
+            <img src={pelicula.Poster} alt="Poster" />
             <p>{pelicula.Title}</p>
             <p>{pelicula.Year}</p>
             <p>{pelicula.Type}</p>

@@ -7,6 +7,7 @@ import MovieCard from './MovieCard.jsx'
 function App() {
 
   const [movies, setMovies] = useState([])
+  const [movie, setMovie] = useState("")
 
   const handleSearch = async (busqueda) => {
     const res = await simpleMovie(busqueda)
@@ -14,13 +15,19 @@ function App() {
     console.log(res.Search)
   }
 
+  const mostrarPelicula = async (id) => {
+    const res = await movieDetail(id)
+    setMovie(res)
+    setMovies([])
+  }
+
   return (
     <>
       <SearchBar handleSearch={handleSearch} />
       {
-        movies.forEach((pelicula) => {
-          <MovieCard pelicula={pelicula}/>
-        })
+        movies.map((pelicula) => (
+          <MovieCard key={pelicula.imdbID} pelicula={pelicula} />
+        ))
       }
     </>
   )
