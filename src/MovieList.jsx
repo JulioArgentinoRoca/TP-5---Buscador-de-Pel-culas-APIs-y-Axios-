@@ -11,7 +11,7 @@ const MovieList = () => {
 		<div className="movie-list">
 			<h2>Peliculas de la api</h2>
 			<ul>
-				{movies.map((simpleMovie) => (
+				{(movies && movies.map((simpleMovie) => (
 					<li className="movie-item" key={simpleMovie.id}>
 						
 						<img className="movie-poster" src={simpleMovie.Poster} alt={simpleMovie.Title} />
@@ -27,7 +27,7 @@ const MovieList = () => {
 							</div>
 						</div>
 					</li>
-				))}
+				)))}
 			</ul>			
 		</div>
 	)

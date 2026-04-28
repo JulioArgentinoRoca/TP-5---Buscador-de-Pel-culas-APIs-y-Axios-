@@ -39,7 +39,6 @@ function App() {
 
   const mostrarPelicula = async (id) => {
     const res = await movieDetail(id)
-    console.log(res)
     setMovie(res)
     setMovies([])
   }
@@ -58,9 +57,9 @@ function App() {
       <SearchBar handleSearch={handleSearch} home={home} />
       <div className="movie-grid">
         {
-          movies.map((pelicula) => (
+          (movies && movies.map((pelicula) => (
             <MovieCard key={pelicula.imdbID} pelicula={pelicula} mostrarPelicula={mostrarPelicula} />
-          ))
+          )))
         }
       </div>
 

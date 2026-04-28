@@ -21,7 +21,6 @@ function SearchBar({ handleSearch, home }) {
             ))
     }
 
-    console.log(theme)
 
     const handleSubmit = (e) => {
         e.preventDefault()
