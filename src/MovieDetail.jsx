@@ -16,6 +16,8 @@ function MovieDetail({movie}){
             <p>{movie.Language}</p>
             <p>{movie.Country}</p>
             <p>{movie.imdbRating || ""}</p>
+
+          
         </section>
     )
 }

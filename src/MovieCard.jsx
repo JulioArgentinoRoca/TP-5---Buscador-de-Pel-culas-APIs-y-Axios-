@@ -16,7 +16,6 @@ function MovieCard({ pelicula, mostrarPelicula }) {
             <p>{pelicula.Title}</p>
             <p>{pelicula.Year}</p>
             <p>{pelicula.Type}</p>
-            <p>{pelicula.imdbID}</p>
 
         </section>
     )
