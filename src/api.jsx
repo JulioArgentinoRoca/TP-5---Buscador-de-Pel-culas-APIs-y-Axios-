@@ -12,6 +12,7 @@ export const simpleMovie = async (tittle) =>{
 }
 
 export const movieDetail = async (id) => {
+    console.log(id)
     try{
         const response = await axios.get(`https://www.omdbapi.com/?apikey=${apiKey}&i=${id}`)
         return response.data

@@ -8,12 +8,13 @@ function MovieCard({ pelicula, mostrarPelicula }) {
 
 
     return (
-        <section onClick={handleClick}>
+        <section>
 
-            <img src={pelicula.Poster} alt="Poster" />
+            <img src={pelicula.Poster} alt="Poster" onClick={handleClick}/>
             <p>{pelicula.Title}</p>
             <p>{pelicula.Year}</p>
             <p>{pelicula.Type}</p>
+            <p>{pelicula.imdbID}</p>
 
         </section>
     )
