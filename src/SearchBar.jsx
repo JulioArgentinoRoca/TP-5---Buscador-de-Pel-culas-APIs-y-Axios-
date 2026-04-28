@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import "./SearchBar.css"
+import lupaIcon from './img/lupa.png'
 
 function SearchBar({ handleSearch }) {
 
@@ -9,11 +10,24 @@ function SearchBar({ handleSearch }) {
         e.preventDefault()
         handleSearch(busqueda)
     }
+
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="searchBar" placeholder="Busca una pelicula..." id="peliculaInput" onChange={(e) => setBusqueda(e.target.value)}/>
-                <button type="submit"><img src="./img/lupa.png" alt="" /></button>
+        <div className="search-bar-container">
+            <form className="search-form" onSubmit={handleSubmit}>
+                <div className="search-input-wrapper">
+                    <input
+                        type="text"
+                        name="searchBar"
+                        placeholder="Busca una película..."
+                        id="peliculaInput"
+                        value={busqueda}
+                        onChange={(e) => setBusqueda(e.target.value)}
+                        className="search-input"
+                    />
+                </div>
+                <button type="submit" className="search-button">
+                    <img className="search-icon" src={lupaIcon} alt="Buscar" />
+                </button>
             </form>
         </div>
     )

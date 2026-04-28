@@ -24,11 +24,15 @@ function App() {
   return (
     <>
       <SearchBar handleSearch={handleSearch} />
-      {
-        movies.map((pelicula) => (
-          <MovieCard key={pelicula.imdbID} pelicula={pelicula} />
-        ))
-      }
+      
+      <div className="movie-grid">
+        {
+          movies.map((pelicula) => (
+            <MovieCard key={pelicula.imdbID} pelicula={pelicula} mostrarPelicula={mostrarPelicula} />
+          ))
+        }
+      </div>
+      
     </>
   )
 }
