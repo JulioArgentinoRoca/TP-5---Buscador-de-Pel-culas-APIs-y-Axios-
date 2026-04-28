@@ -4,9 +4,10 @@ import SearchBar from "./SearchBar.jsx"
 import { simpleMovie, movieDetail, filterSeacrh } from './api.jsx'
 import MovieCard from './MovieCard.jsx'
 import MovieDetail from './MovieDetail.jsx'
+import { useTheme } from './themeContext.jsx';
 
 function App() {
-
+  const { theme, toggleTheme } = useTheme();
   const [movies, setMovies] = useState([])
   const [movie, setMovie] = useState()
 
@@ -53,7 +54,7 @@ function App() {
 
 
   return (
-    <>
+    <div className={theme}>
       <SearchBar handleSearch={handleSearch} home={home} />
       {
         movies.map((pelicula) => (
@@ -62,7 +63,7 @@ function App() {
       }
 
       {movie && <MovieDetail movie={movie} />}
-    </>
+    </div>
   )
 }
 

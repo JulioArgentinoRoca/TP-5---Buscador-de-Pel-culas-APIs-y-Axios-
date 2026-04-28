@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import "./SearchBar.css"
+import { useTheme } from './themeContext.jsx';
+
+
 
 function SearchBar({ handleSearch, home }) {
-
+    const { theme, toggleTheme } = useTheme();
     const [mostrarPopUp, setMostrarPopUp] = useState(false)
     const [busqueda, setBusqueda] = useState("")
     const [filter, setFilter] = useState()
@@ -17,7 +20,7 @@ function SearchBar({ handleSearch, home }) {
             ))
     }
 
-    
+    console.log(theme)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -53,6 +56,8 @@ function SearchBar({ handleSearch, home }) {
             </div>
 
             {displayHistory()}
+
+            <button onClick={()=>toggleTheme()}>switch mode</button>
         </section>
 
     )

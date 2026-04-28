@@ -1,6 +1,8 @@
 import "./MovieCard.css"
 
+
 function MovieCard({ pelicula, mostrarPelicula }) {
+    
 
     const handleClick = () => {
         mostrarPelicula(pelicula.imdbID)
