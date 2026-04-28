@@ -11,7 +11,7 @@ export const simpleMovie = async (tittle) =>{
     }
 }
 
-export const filterSeacrh = async (tittle, filter) =>{
+export const filterSeacrh = async (tittle, filter) =>{//movie, series, episode
     try{
         const response = await axios.get(`https://www.omdbapi.com/?apikey=${apiKey}&s=${tittle}&type=${filter}`)
         return response.data
@@ -21,6 +21,7 @@ export const filterSeacrh = async (tittle, filter) =>{
 }
 
 export const movieDetail = async (id) => {
+    console.log(id)
     try{
         const response = await axios.get(`https://www.omdbapi.com/?apikey=${apiKey}&i=${id}`)
         return response.data
