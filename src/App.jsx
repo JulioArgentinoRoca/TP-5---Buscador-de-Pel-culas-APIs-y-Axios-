@@ -55,11 +55,13 @@ function App() {
   return (
     <>
       <SearchBar handleSearch={handleSearch} home={home} />
-      {
-        movies.map((pelicula) => (
-          <MovieCard key={pelicula.imdbID} pelicula={pelicula} mostrarPelicula={mostrarPelicula} />
-        ))
-      }
+      <div className="movie-grid">
+        {
+          movies.map((pelicula) => (
+            <MovieCard key={pelicula.imdbID} pelicula={pelicula} mostrarPelicula={mostrarPelicula} />
+          ))
+        }
+      </div>
 
       {movie && <MovieDetail movie={movie} />}
     </>

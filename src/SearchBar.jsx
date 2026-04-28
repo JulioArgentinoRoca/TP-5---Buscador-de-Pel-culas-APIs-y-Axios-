@@ -31,14 +31,14 @@ function SearchBar({ handleSearch, home }) {
     }
 
     return (
-        <section>
+        <section className="search-bar-section">
             
 
-            <div>
-                <form>
-                    <input type="text" name="searchBar" placeholder="Busca una pelicula..." id="peliculaInput" onChange={(e) => setBusqueda(e.target.value)} />
-                    <button type="button" onClick={toggleFilters}>⚙️</button>
-                    <button type="submit" onClick={handleSubmit}>🔍</button>
+            <div className="search-bar-container">
+                <form className="search-form">
+                    <input type="text" className="search-input" placeholder="Busca una pelicula..." id="peliculaInput" onChange={(e) => setBusqueda(e.target.value)} />
+                    <button className="filter-button" type="button" onClick={toggleFilters}>⚙️</button>
+                    <button className="submit-button" type="submit" onClick={handleSubmit}>🔍</button>
 
                     {
                         mostrarPopUp && (
@@ -49,7 +49,7 @@ function SearchBar({ handleSearch, home }) {
                             </div>
                         )
                     }
-                    <button type="submit" onClick={home}>Clear All</button>
+                    <button className="clear-button" type="submit" onClick={home}>Clear All</button>
                 </form>
             </div>
 
