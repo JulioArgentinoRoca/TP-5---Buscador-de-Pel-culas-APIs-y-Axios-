@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import "./SearchBar.css"
-import lupaIcon from './img/lupa.png'
 
 function SearchBar({ handleSearch, home }) {
 
@@ -8,17 +7,16 @@ function SearchBar({ handleSearch, home }) {
     const [busqueda, setBusqueda] = useState("")
     const [filter, setFilter] = useState()
 
-    const displayHistory = () =>{
+    const displayHistory = () => {
         let historyArray = JSON.parse(sessionStorage.getItem('history'))
-        if(!historyArray)return <></>
+        if (!historyArray) return <></>
 
         return historyArray.map((item) => (
-                /* Siempre usa una 'key' única al hacer maps */
-                <p>{item.name}</p>
-            ))
+            <span className="history-item">{item.name}</span>
+        ))
     }
 
-    
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -32,7 +30,7 @@ function SearchBar({ handleSearch, home }) {
 
     return (
         <section className="search-bar-section">
-            
+
 
             <div className="search-bar-container">
                 <form className="search-form">
@@ -53,7 +51,9 @@ function SearchBar({ handleSearch, home }) {
                 </form>
             </div>
 
-            {displayHistory()}
+            <div classname ="history-section">
+                {displayHistory()}
+            </div>
         </section>
 
     )
