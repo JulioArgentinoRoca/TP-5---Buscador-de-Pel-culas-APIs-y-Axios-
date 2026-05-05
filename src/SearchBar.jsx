@@ -1,26 +1,21 @@
 import { useState } from 'react'
 import "./SearchBar.css"
-import { useTheme } from './themeContext.jsx';
-
-
-import lupaIcon from './img/lupa.png'
+import { useTheme } from './themeContext.jsx'
 
 function SearchBar({ handleSearch, home }) {
-    const { theme, toggleTheme } = useTheme();
+    const { toggleTheme } = useTheme()
     const [mostrarPopUp, setMostrarPopUp] = useState(false)
     const [busqueda, setBusqueda] = useState("")
     const [filter, setFilter] = useState()
 
-    const displayHistory = () =>{
+    const displayHistory = () => {
         let historyArray = JSON.parse(sessionStorage.getItem('history'))
-        if(!historyArray)return <></>
+        if (!historyArray) return <></>
 
-        return historyArray.map((item) => (
-                /* Siempre usa una 'key' única al hacer maps */
-                <p>{item.name}</p>
-            ))
+        return historyArray.map((item, index) => (
+            <span className="history-item" key={index}>{item.name}</span>
+        ))
     }
-
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -34,32 +29,30 @@ function SearchBar({ handleSearch, home }) {
 
     return (
         <section className="search-bar-section">
-            
-
             <div className="search-bar-container">
                 <form className="search-form">
                     <input type="text" className="search-input" placeholder="Busca una pelicula..." id="peliculaInput" onChange={(e) => setBusqueda(e.target.value)} />
                     <button className="filter-button" type="button" onClick={toggleFilters}>⚙️</button>
                     <button className="submit-button" type="submit" onClick={handleSubmit}>🔍</button>
 
-                    {
-                        mostrarPopUp && (
-                            <div id='popUp' className="popup-estilo">
-                                <input type="radio" value={"movie"} name='filter' onChange={(e) => setFilter(e.target.value)} /><p>Movie</p>
-                                <input type="radio" value={"series"} name='filter' onChange={(e) => setFilter(e.target.value)} /><p>Series</p>
-                                <input type="radio" value={"episode"} name='filter' onChange={(e) => setFilter(e.target.value)} /><p>Episode</p>
-                            </div>
-                        )
-                    }
-                    <button className="clear-button" type="submit" onClick={home}>Clear All</button>
+                    {mostrarPopUp && (
+                        <div id='popUp' className="popup-estilo">
+                            <input type="radio" value={"movie"} name='filter' onChange={(e) => setFilter(e.target.value)} /><p>Movie</p>
+                            <input type="radio" value={"series"} name='filter' onChange={(e) => setFilter(e.target.value)} /><p>Series</p>
+                            <input type="radio" value={"episode"} name='filter' onChange={(e) => setFilter(e.target.value)} /><p>Episode</p>
+                        </div>
+                    )}
+
+                    <button className="clear-button" type="button" onClick={home}>Clear All</button>
                 </form>
             </div>
 
-            {displayHistory()}
+            <div className="history-section">
+                {displayHistory()}
+            </div>
 
-            <button onClick={()=>toggleTheme()}>switch mode</button>
+            <button className="theme-toggle" onClick={toggleTheme}>🌙 Dark / Light</button>
         </section>
-
     )
 }
 

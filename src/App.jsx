@@ -53,16 +53,13 @@ function App() {
 
 
   return (
-    <div className={theme}>
+    <div className={theme} style={{ minHeight: "100vh" }}>
       <SearchBar handleSearch={handleSearch} home={home} />
       <div className="movie-grid">
-        {
-          (movies && movies.map((pelicula) => (
-            <MovieCard key={pelicula.imdbID} pelicula={pelicula} mostrarPelicula={mostrarPelicula} />
-          )))
-        }
+        {movies && movies.map((pelicula) => (
+          <MovieCard key={pelicula.imdbID} pelicula={pelicula} mostrarPelicula={mostrarPelicula} />
+        ))}
       </div>
-
       {movie && <MovieDetail movie={movie} />}
     </div>
   )

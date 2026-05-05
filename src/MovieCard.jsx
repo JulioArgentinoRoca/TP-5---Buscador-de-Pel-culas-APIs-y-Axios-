@@ -10,12 +10,12 @@ function MovieCard({ pelicula, mostrarPelicula }) {
 
 
     return (
-        <section>
+        <section className="movie-card">
 
-            <img src={pelicula.Poster} alt="Poster" onClick={handleClick}/>
-            <p>{pelicula.Title}</p>
-            <p>{pelicula.Year}</p>
-            <p>{pelicula.Type}</p>
+            <img src={pelicula.Poster} alt="Poster" onClick={handleClick} className="movie-card-poster"/>
+            <p className="movie-card-title">{pelicula.Title}</p>
+            <p className="movie-card-year">{pelicula.Year}</p>
+            <p className="movie-card-type">{pelicula.Type}</p>
 
         </section>
     )
