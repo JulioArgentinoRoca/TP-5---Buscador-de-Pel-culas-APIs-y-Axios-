@@ -12,7 +12,7 @@ function MovieCard({ pelicula, mostrarPelicula }) {
 
 
     return (
-        <section>
+        <section className="movie-card-container">
             <div className="movie-card" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
 
                 <img src={pelicula.Poster} alt="Poster" onClick={handleClick} className="movie-card-poster" />
@@ -27,7 +27,6 @@ function MovieCard({ pelicula, mostrarPelicula }) {
                     <p className="popup-title">{pelicula.Title}</p>
                     <p className="popup-year">{pelicula.Year}</p>
                     <p className="popup-type">{pelicula.Type}</p>
-                    <p className="popup-id">{pelicula.imdbID}</p>
                     <span className="popup-hint">Click para ver detalles</span>
                 </div>
             )}
